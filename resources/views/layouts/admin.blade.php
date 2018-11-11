@@ -12,7 +12,7 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
@@ -23,6 +23,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
 
 
@@ -182,11 +183,6 @@
                     </li>
 
 
-
-
-
-
-
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -291,9 +287,6 @@
                     <a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>
                 </li>
 
-
-
-
                 <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -309,10 +302,6 @@
                     <!-- /.nav-second-level -->
                 </li>
 
-
-
-
-
             </ul>
 
         </div>
@@ -320,11 +309,6 @@
     </div>
 
 </div>
-
-
-
-
-
 
 <!-- Page Content -->
 <div id="page-wrapper">
@@ -351,10 +335,6 @@
 
 
 @yield('footer')
-
-
-
-
 
 </body>
 
