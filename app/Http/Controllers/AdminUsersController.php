@@ -8,6 +8,7 @@ use App\Photo;
 use App\Role;
 use App\User;
 
+
 class AdminUsersController extends Controller
 {
     /**
@@ -42,6 +43,7 @@ class AdminUsersController extends Controller
     public function store(CreateUserRequest $request)
     {
 
+
         if ($request['password'] == '')
         {
             $input = $request->except('password');
@@ -50,15 +52,12 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($request->password);
         }
 
-
-
         if($file = $request->file('photo_id')){
-           $name = time() . $file->getClientOriginalName();
-           $file->move('images', $name);
-           $photo = Photo::create(['path'=>$name]);
-           $input['photo_id'] = $photo->id;
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['path'=> $name]);
+            $input['photo_id'] = $photo->id;
         }
-
         User::create($input);
 
         return redirect('/admin/users');
@@ -132,6 +131,10 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        unlink(public_path(). $user->photo->path);
+        $user->delete();
+
+        return redirect('/admin/users')->with('status', 'User deleted!');
     }
 }

@@ -6,10 +6,9 @@
 
     {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update' , $user->id], 'files'=>true]) !!}
     <div class="col-sm-3">
-
-        <img src="{{$user->photo->path }}" alt="" class="img-responsive img-rounded">
-
+        <img src="{{$user->photo ? $user->photo->path : 'http://placehold.it/256x256php '}}" alt="" class="img-responsive img-rounded">
     </div>
+
     <div class="col-sm-9">
         <div class="form-group">
             {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name:']) !!}
@@ -43,8 +42,12 @@
         @include('includes.form-error')
 
     </div>
+    {!! Form::close() !!}
 
-
+    {!! Form::model($user, ['method'=>'DELETE', 'action'=>['AdminUsersController@destroy' , $user->id], 'class'=>'pull-right']) !!}
+    <div class="form-group">
+        {!! Form::submit('Delete User', ['class'=>'btn btn-danger']) !!}
+    </div>
     {!! Form::close() !!}
 
 
