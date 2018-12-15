@@ -6,7 +6,7 @@
 
     {!! Form::model($user, ['method'=>'PATCH', 'action'=>['AdminUsersController@update' , $user->id], 'files'=>true]) !!}
     <div class="col-sm-3">
-        <img src="{{$user->photo ? $user->photo->path : 'http://placehold.it/256x256php '}}" alt="" class="img-responsive img-rounded">
+        <img src="{{$user->photo ? $user->photo->path : 'http://placehold.it/32x32'}}" alt="" class="img-responsive img-rounded">
     </div>
 
     <div class="col-sm-9">
